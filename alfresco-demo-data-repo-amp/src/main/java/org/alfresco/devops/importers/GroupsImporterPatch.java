@@ -334,7 +334,7 @@ public class GroupsImporterPatch extends AbstractPatch implements ApplicationLis
 
 		onContextRefreshedEvent=true;
 
-		AuthenticationUtil.runAsSystem(new RunAsWork<Void>(){
+		AuthenticationUtil.runAs(new RunAsWork<Void>(){
 			@Override 
 			public Void doWork() throws Exception
 			{
@@ -351,7 +351,7 @@ public class GroupsImporterPatch extends AbstractPatch implements ApplicationLis
 				}
 				return null;
 			}
-		});
+		}, AuthenticationUtil.getAdminUserName());
 
 	}
 

@@ -118,7 +118,7 @@ public class RMSitePatch extends AbstractPatch implements ApplicationListener<Co
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		onContextRefreshedEvent=true;
 
-		AuthenticationUtil.runAsSystem(new RunAsWork<Void>(){
+		AuthenticationUtil.runAs(new RunAsWork<Void>(){
 			@Override 
 			public Void doWork() throws Exception
 			{
@@ -135,7 +135,7 @@ public class RMSitePatch extends AbstractPatch implements ApplicationListener<Co
 				}
 				return null;
 			}
-		});
+		}, AuthenticationUtil.getAdminUserName());
 	}
 
 	public void setAttributeService(AttributeService attributeService) {

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>alfresco-demo-data-share-amp</artifactId>
 	<name>Alfresco Share AMP Module</name>
-	<packaging>amp</packaging>
+	<packaging>jar</packaging>
 	<description>This is a sample Alfresco Share AMP project, depended upon by the share WAR module</description>
 
 	<parent>
@@ -13,19 +14,17 @@
 	</parent>
 
 	<properties>
-		<app.amp.client.war.artifactId>share</app.amp.client.war.artifactId>
-		<app.log.root.level>WARN</app.log.root.level>
+		<!-- <app.amp.client.war.artifactId>share</app.amp.client.war.artifactId>
+		<app.log.root.level>WARN</app.log.root.level> -->
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>${alfresco.groupId}</groupId>
-			<artifactId>share</artifactId>
-			<version>${alfresco.version}</version>
-			<classifier>classes</classifier>
-			<scope>provided</scope>
-		</dependency>
-
+        <dependency>
+            <groupId>${alfresco.groupId}</groupId>
+            <artifactId>share</artifactId>
+            <classifier>classes</classifier>
+        </dependency>
+<!-- 
 		<dependency>
 			<groupId>org.springframework.extensions.surf</groupId>
 			<artifactId>spring-surf-api</artifactId>
@@ -74,7 +73,15 @@
 					<artifactId>hamcrest-core</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
+		</dependency> -->
 
 	</dependencies>
+	<build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

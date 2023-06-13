@@ -60,7 +60,7 @@ public class PostSiteLoadPatch extends SiteLoadPatch implements ApplicationListe
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		onContextRefreshedEvent=true;
-		AuthenticationUtil.runAsSystem(new RunAsWork<Void>(){
+		AuthenticationUtil.runAs(new RunAsWork<Void>(){
 			@Override 
 			public Void doWork() throws Exception
 			{
@@ -81,7 +81,7 @@ public class PostSiteLoadPatch extends SiteLoadPatch implements ApplicationListe
 				}
 				return null;
 			}
-		});
+		}, AuthenticationUtil.getAdminUserName());
 
 	}
 
