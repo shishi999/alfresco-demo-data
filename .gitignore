@@ -2,7 +2,8 @@ alf_data_dev/
 *.log
 target/
 .classpath
-.project 
+.project
 .settings
 **.iml
 .idea
+.vscode
